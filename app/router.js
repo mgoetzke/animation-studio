@@ -7,4 +7,7 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function() {
+  this.route('frame');
+  this.route('animation');
+  this.route('gallery');
 });
