@@ -10,7 +10,7 @@ export default class Swatch extends Component{
     }
 
 
-    translateSize(size) {
+    translateSize(size="s") {
         switch(size){
             case("s"):
                 return 10;
