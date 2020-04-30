@@ -1,0 +1,8 @@
+<div class="palette">
+    {{#each this.colorOptions as |option|}}
+        <Swatch
+            @shade={{option}}
+            @size="s"
+        />
+    {{/each}}
+</div>
