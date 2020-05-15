@@ -1,8 +1,16 @@
 <div class="palette">
+    Selected Color
+    <Swatch
+        @shade={{this.selectedColor}}
+        @size="m"
+        data-test-swatch-selected={{this.selectedColor}}
+     />
     {{#each this.colorOptions as |option|}}
         <Swatch
             @shade={{option}}
             @size="s"
+            data-test-swatch={{option}}
+            onclick={{action this.updateSelectedColor option}}
         />
     {{/each}}
 </div>
