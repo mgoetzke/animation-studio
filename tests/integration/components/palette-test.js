@@ -20,9 +20,9 @@ module('Integration | Component | palette', function(hooks) {
     await render(hbs`<Palette 
                 @colorOptions={{this.colorOptions}}>
                 </Palette>`);
-                
-    assert.dom('[data-test-swatch-selected] [data-test-color]').hasStyle({'background-color': 'rgb(0, 0, 0)' } ,'black is default selected');
+
+    assert.dom('[data-test-swatch-selected]').hasStyle({'background-color': 'rgb(0, 0, 0)' } ,'black is default selected');
     await click('[data-test-swatch=red]');
-    assert.dom('[data-test-swatch-selected] [data-test-color]').hasStyle({'background-color': 'rgb(255, 0, 0)' } ,'user can switch colors');
+    assert.dom('[data-test-swatch-selected]').hasStyle({'background-color': 'rgb(255, 0, 0)' } ,'user can switch colors');
   });
 });

@@ -3,6 +3,8 @@ import { computed} from '@ember/object';
 import { htmlSafe } from '@ember/string';
 
 export default class Swatch extends Component{
+    tagName = ''
+    
     @computed('shade','size')  
     get style() {
         const size = this.translateSize(this.size);
