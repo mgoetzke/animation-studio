@@ -10,7 +10,7 @@
             @shade={{option}}
             @size="s"
             data-test-swatch={{option}}
-            onclick={{action this.updateSelectedColor option}}
+            {{on "click" (fn this.updateSelectedColor option)}}
         />
     {{/each}}
 </div>
