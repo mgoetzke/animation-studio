@@ -1,11 +1,12 @@
 <div>
-    <div data-test-palette>
-        Palette
-        {{#each colorOptions as option}}
-            <div color=option.name></div>
-        {{/each}}
-    </div>
-    <canvas>
-
-    </canvas>
+    {{#each this.pixelRows as |row|}}
+        <div class="flex" data-test-frame-row>
+            {{#each row as |pixel|}}
+                <Swatch
+                    data-test-pixel={{pixel}}
+                    @shade={{pixel}}
+                />
+            {{/each}}
+        </div>
+    {{/each}}
 </div>
