@@ -16,10 +16,14 @@ module('Integration | Component | frame', function(hooks) {
   });
 
   test('The user can edit frame pixels', async function(assert) {
-    await render(hbs`<Frame />`);
-    assert.dom('[data-test-pixel=0]').hasStyle({'background-color': 'rgb(0, 0, 0)' } ,'white is default color');
-    await click('[data-test-pixel=0]');
-    assert.dom('[data-test-pixel=0]').hasStyle({'background-color': 'rgb(255, 0, 0)' } ,'updates color');
+    const samplePixels = ['red','green', 'blue', 'cyan','yellow','magenta','black','white', 'grey'];
+    this.set('samplePixels', samplePixels)
+
+    await render(hbs`<Frame @pixels={{samplePixels}} @paletteColor={{'blue'}}/>`);
+    
+    assert.dom('[data-test-pixel="0"]').hasStyle({'background-color': 'rgb(255, 0, 0)' } ,'pixel has initial color passed');
+    await click('[data-test-pixel="0"]');
+    assert.dom('[data-test-pixel="0"]').hasStyle({'background-color': 'rgb(0, 0, 255)' } ,'updates color');
   });
 
 
