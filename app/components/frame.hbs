@@ -3,8 +3,9 @@
         <div class="flex" data-test-frame-row>
             {{#each row as |pixel|}}
                 <Swatch
-                    data-test-pixel={{pixel}}
-                    @shade={{pixel}}
+                    data-test-pixel={{pixel.index}}
+                    @shade={{pixel.color}}
+                    {{on "click" (fn this.updatePixelColor pixel.index)}}
                 />
             {{/each}}
         </div>
