@@ -1,13 +1,9 @@
-<div>
-    {{#each this.pixelRows as |row|}}
-        <div class="flex" data-test-frame-row>
-            {{#each row as |pixel|}}
-                <Swatch
-                    data-test-pixel={{pixel.index}}
-                    @shade={{pixel.color}}
-                    {{on "click" (fn this.updatePixelColor pixel.index)}}
-                />
-            {{/each}}
-        </div>
-    {{/each}}
+<div class="grid gap-0 grid-cols-{{this.sqrtPixels}}">
+  {{#each this.pixels as |pixel index|}}
+    <Swatch
+      data-test-pixel={{index}}
+      @shade={{pixel}}
+      {{on "click" (fn this.updatePixelColor index)}}
+    />
+  {{/each}}
 </div>

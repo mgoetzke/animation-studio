@@ -1,24 +1,12 @@
 import Component from '@ember/component';
-import { action, set, computed } from '@ember/object';
+import { action, set } from '@ember/object';
 export default class FrameComponent extends Component {
-    tagName= ''
+    tagName = ''
+    sqrtPixels = null;
 
-    @computed('pixels')  
-    get pixelRows() {
-        const indexedPixels = this.pixels.map((pixel, index) => { 
-            return {'color': pixel, index}
-        })
-        const totalPixels = this.pixels.length;
-        const rowSize = Math.sqrt(totalPixels);
-        const rows = [];
-
-        while (rows.length*rowSize < totalPixels) {
-            const startIndex = rows.length*rowSize;
-            const endIndex = startIndex + rowSize;
-            const pixelSlice = indexedPixels.slice(startIndex, endIndex);
-            rows.push(pixelSlice);
-        }
-        return rows;      
+    init() {
+      super.init(...arguments)
+      this.sqrtPixels = Math.sqrt(this.pixels.length);
     }
 
     @action

@@ -11,7 +11,6 @@ module('Integration | Component | frame', function(hooks) {
     this.set('samplePixels', samplePixels)
     await render(hbs`<Frame @pixels={{samplePixels}}/>`);
 
-    assert.dom('[data-test-frame-row]').exists({count: Math.sqrt(samplePixels.length)});
     assert.dom('[data-test-pixel]').exists({count: 9});
   });
 
