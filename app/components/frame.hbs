@@ -1,9 +1,9 @@
 <div class="grid gap-0 grid-cols-{{this.sqrtPixels}}">
-  {{#each this.pixels as |pixel index|}}
+  {{#each this.trackedPixels as |pixel index|}}
     <Swatch
       data-test-pixel={{index}}
-      @shade={{pixel}}
-      {{on "click" (fn this.updatePixelColor index)}}
+      @shade={{pixel.color}}
+      {{on "click" (fn this.updatePixelColor pixel)}}
     />
   {{/each}}
 </div>

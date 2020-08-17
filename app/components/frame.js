@@ -1,20 +1,29 @@
 import Component from '@ember/component';
-import { action, set } from '@ember/object';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+
+
+class TrackedPixel {
+  @tracked color;
+
+  constructor(color) {
+    this.color = color;
+  }
+}
 export default class FrameComponent extends Component {
     tagName = ''
     sqrtPixels = null;
+    trackedPixels = null;
 
     init() {
       super.init(...arguments)
       this.sqrtPixels = Math.sqrt(this.pixels.length);
+      this.trackedPixels = this.pixels.map((pixel) => { return new TrackedPixel(pixel)})
     }
 
     @action
-    updatePixelColor(pixelIndex) {
-        const newColor = this.paletteColor;
-        const newPixels = [...this.pixels];
-        newPixels[pixelIndex] = newColor;
-        set(this, 'pixels', newPixels);
+    updatePixelColor(pixel) {
+        pixel.color = this.paletteColor;
     }
 }
    
