@@ -1,4 +1,6 @@
-<div class="grid gap-0 grid-cols-{{this.sqrtPixels}}">
+<div class="grid gap-0 grid-cols-{{this.sqrtPixels}}"
+  data-test-animation-frame
+>
   {{#each this.trackedPixels as |pixel index|}}
     <Swatch
       data-test-pixel={{index}}
