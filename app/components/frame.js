@@ -23,7 +23,7 @@ export default class FrameComponent extends Component {
 
     @action
     updatePixelColor(pixel) {
-        pixel.color = this.paletteColor;
+        pixel.color = this.selectedColor;
     }
 }
    

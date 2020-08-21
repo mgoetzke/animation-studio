@@ -18,7 +18,7 @@ module('Integration | Component | frame', function(hooks) {
     const samplePixels = ['red','green', 'blue', 'cyan','yellow','magenta','black','white', 'grey'];
     this.set('samplePixels', samplePixels)
 
-    await render(hbs`<Frame @pixels={{samplePixels}} @paletteColor={{'blue'}}/>`);
+    await render(hbs`<Frame @pixels={{samplePixels}} @selectedColor={{'blue'}}/>`);
     
     assert.dom('[data-test-pixel="0"]').hasStyle({'background-color': 'rgb(255, 0, 0)' } ,'pixel has initial color passed');
     await click('[data-test-pixel="0"]');
