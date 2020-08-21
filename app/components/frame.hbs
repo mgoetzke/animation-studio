@@ -1,11 +1,9 @@
-<div>
-    <div data-test-palette>
-        Palette
-        {{#each colorOptions as option}}
-            <div color=option.name></div>
-        {{/each}}
-    </div>
-    <canvas>
-
-    </canvas>
+<div class="grid gap-0 grid-cols-{{this.sqrtPixels}}">
+  {{#each this.trackedPixels as |pixel index|}}
+    <Swatch
+      data-test-pixel={{index}}
+      @shade={{pixel.color}}
+      {{on "click" (fn this.updatePixelColor pixel)}}
+    />
+  {{/each}}
 </div>
