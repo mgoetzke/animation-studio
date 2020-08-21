@@ -1,16 +1,16 @@
 <div class="palette" data-test-animation-palette>
     Selected Color
     <Swatch
-        @shade={{this.selectedColor}}
+        @shade={{@selectedColor}}
         @size="m"
-        data-test-swatch-selected={{this.selectedColor}}
+        data-test-swatch-selected={{@selectedColor}}
      />
-    {{#each this.colorOptions as |option|}}
+    {{#each @colorOptions as |option|}}
         <Swatch
             @shade={{option}}
             @size="s"
             data-test-swatch={{option}}
-            {{on "click" (fn this.updateSelectedColor option)}}
+            {{on "click" (fn @updateSelectedColor option)}}
         />
     {{/each}}
 </div>
