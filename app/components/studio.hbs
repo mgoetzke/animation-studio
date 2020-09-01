@@ -1,11 +1,15 @@
-<div class="flex">
-  <Frame
-    @pixels={{@pixels}}
-    @selectedColor={{this.selectedColor}}
-  />
-  <Palette
-    @colorOptions={{@colorOptions}}
-    @selectedColor={{this.selectedColor}}
-    @updateSelectedColor={{this.updateSelectedColor}}
-  />
+<div class="h-screen flex justify-center bg-gray-300">
+  <div class="w-2/3 flex justify-between items-center">
+    <Frame
+      class="content-start bg-white p-5"
+      @pixels={{@pixels}}
+      @selectedColor={{this.selectedColor}}
+    />
+    <Palette
+      class="bg-white p-5"
+      @colorOptions={{@colorOptions}}
+      @selectedColor={{this.selectedColor}}
+      @updateSelectedColor={{this.updateSelectedColor}}
+    />
+  </div>
 </div>

@@ -34,7 +34,7 @@ module('Integration | Component | studio', function(hooks) {
     await render(hbs`<Studio @pixels={{this.samplePixels}} @colorOptions={{this.colorOptions}}/>`);
     await click('[data-test-swatch=orange]');
     await click('[data-test-pixel="0"]');
-
+    await this.pauseTest();
     assert.dom('[data-test-pixel="0"]').hasStyle({'background-color': 'rgb(255, 165, 0)' } ,'updates color');
   });
 });
